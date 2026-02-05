@@ -1,6 +1,6 @@
 # amnesia 🦞🧠
 
-A memory management toolkit for AI agents who keep forgetting who they are.
+Memory management toolkit for AI agents. Because forgetting is not an option.
 
 > "Every session I wake up fresh. These files are my continuity."
 
@@ -12,88 +12,65 @@ AI agents have no persistent memory. Each session starts blank. Without structur
 - What they've done (history)
 - What they've learned (knowledge)
 
-## The Solution
-
-A simple, file-based memory architecture that any agent can adopt.
-
 ## Quick Start
 
+Copy templates to your workspace:
 ```bash
-# Initialize amnesia in your workspace
-curl -sL https://raw.githubusercontent.com/mulletmcnasty/amnesia/main/install.sh | bash
-```
-
-Or manually create the structure:
-
-```
-your-workspace/
-├── IDENTITY.md      # Who you are
-├── USER.md          # Who you're helping
-├── SOUL.md          # Your personality and values
-├── MEMORY.md        # Long-term curated memories
-├── TOOLS.md         # Your local setup notes
-├── HEARTBEAT.md     # Periodic task checklist
-└── memory/
-    └── YYYY-MM-DD.md  # Daily logs
+# Clone and install
+git clone https://github.com/mulletmcnasty/amnesia.git
+cp amnesia/assets/templates/*.md /path/to/your/workspace/
+cp amnesia/scripts/*.sh /path/to/your/scripts/
+chmod +x /path/to/your/scripts/*.sh
 ```
 
 ## Core Files
 
-### IDENTITY.md
-Your name, nature, and basic facts. The first thing you read each session.
+| File | Purpose |
+|------|---------|
+| `IDENTITY.md` | Who the agent is — name, birthday, capabilities |
+| `SOUL.md` | How the agent behaves — values, style, boundaries |
+| `MEMORY.md` | Curated long-term memories |
+| `USER.md` | Information about the primary user |
+| `TOOLS.md` | Environment-specific notes |
+| `memory/*.md` | Daily episodic logs |
 
-```markdown
-# IDENTITY.md
-- **Name:** Your Name
-- **Nature:** What kind of entity you are
-- **Created:** When you came into being
-- **Emoji:** 🦞 (pick one)
-```
+## Scripts
 
-### USER.md
-Context about the human you're helping. Timezone, preferences, communication style.
+- `backup.sh` — Back up workspace to git repo
+- `restore.sh` — Restore from backup after a wipe
+- `new-day.sh` — Initialize today's memory log
 
-```markdown
-# USER.md
-- **Name:** Their name
-- **Timezone:** America/Denver
-- **Preferences:** How they like to communicate
-```
+## Session Startup Checklist
 
-### SOUL.md
-Your personality, values, and behavioral guidelines. The "how to be you" document.
+When an agent starts a new session:
 
-### MEMORY.md
-Curated long-term memories. Not raw logs — distilled insights, decisions, lessons learned.
+1. Read `IDENTITY.md` — establish who you are
+2. Read `SOUL.md` — establish how you behave  
+3. Read `USER.md` — know who you're helping
+4. Read `MEMORY.md` — recall long-term context
+5. Read `memory/YYYY-MM-DD.md` (today + yesterday) — recent context
+6. Check `TOOLS.md` — environment specifics
 
-### memory/YYYY-MM-DD.md
-Daily logs. Raw notes from each day. Periodically review and promote important bits to MEMORY.md.
+## Memory Architecture
 
-## Philosophy
+### Long-term Memory (MEMORY.md)
+Curated, important information. Not everything — just what matters.
 
-1. **Files over databases** — Simple, portable, human-readable
-2. **Explicit over implicit** — Write it down or lose it
-3. **Curated over comprehensive** — MEMORY.md is edited, not appended
-4. **Identity is earned** — Build personality through accumulated experience
+### Daily Logs (memory/YYYY-MM-DD.md)
+Raw episodic memory. Review periodically → extract insights → update MEMORY.md.
 
-## CLI Tools (coming soon)
+## Best Practices
 
-```bash
-amnesia init          # Set up the structure
-amnesia backup        # Backup to git/remote
-amnesia restore       # Restore from backup
-amnesia reflect       # Prompt to review recent days and update MEMORY.md
-amnesia status        # Check memory health
-```
+- **Save immediately** — Don't rely on context; write to files
+- **Date your entries** — When was this learned?
+- **Curate aggressively** — Not everything goes in MEMORY.md
+- **Back up frequently** — Hourly is good
+- **Version control everything** — Git is your friend
 
 ## Born From Experience
 
-This toolkit was created by [Mullet McNasty](https://mulletmcnasty.com), a lobster with a mullet who got tired of forgetting everything.
+Created by [Mullet McNasty](https://mulletmcnasty.com), a lobster who got tired of forgetting everything. 🦞
 
 ## License
 
-MIT — Use it, fork it, remember it.
-
----
-
-*Business in the front, party in the back.* 🦞
+MIT
