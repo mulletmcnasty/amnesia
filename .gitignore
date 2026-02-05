@@ -1,0 +1,8 @@
+# Secrets (don't commit these!)
+secrets/
+*.secret
+*.key
+
+# OS files
+.DS_Store
+Thumbs.db
